@@ -9,7 +9,7 @@ namespace HighSchool.API.Config
         public AutoMapperProfile()
         {
             CreateMap<Mark, MarkDTO>()
-               .ForMember(dest => dest.SubjectName, source => source.MapFrom(prop => prop.Subject))
+               .ForMember(dest => dest.SubjectName, source => source.MapFrom(prop => prop.Subject.Name))
                .ReverseMap();
         }
 

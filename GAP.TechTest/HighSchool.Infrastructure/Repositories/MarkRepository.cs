@@ -2,6 +2,7 @@
 using HighSchool.Infrastructure.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace HighSchool.Infrastructure.Repositories
 {
@@ -14,17 +15,26 @@ namespace HighSchool.Infrastructure.Repositories
 
         public IQueryable<Mark> FilterByScoreBiggerThanValue(int value)
         {
-            return Table.Where(p => p.Score > value);
+            return GetAll().Where(p => p.Score > value);
         }
 
         public IQueryable<Mark> FilterByStudentName(string studentName)
         {
-            return Table.Where(p => p.Student.FullName.Contains(studentName));
+            return GetAll().Where(p => p.Student.FullName.Contains(studentName));
         }
 
         public IQueryable<Mark> FilterBySubjectName(string subjectName)
         {
-            return Table.Where(p => p.Subject.Name.Contains(subjectName));
+            return GetAll().Where(p => p.Subject.Name.Contains(subjectName));
         }
+
+
+        public override IQueryable<Mark> GetAll()
+        {
+            return Table
+                .Include(relation => relation.Student)
+                .Include(relation => relation.Subject);
+        }
+
     }
 }

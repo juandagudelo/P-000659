@@ -5,10 +5,15 @@ namespace HighSchool.Infrastructure.Entities.Students
 {
     public partial class Student
     {
+        public Student()
+        {
+            Marks = new HashSet<Mark>();
+        }
+
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string FullName { get; set; }
 
-        public virtual ICollection<Mark> Marks { get; set; }
+        public ICollection<Mark> Marks { get; set; }
     }
 }

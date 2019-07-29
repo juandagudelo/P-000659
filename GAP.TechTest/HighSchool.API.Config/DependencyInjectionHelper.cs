@@ -1,17 +1,16 @@
 ﻿using HighSchool.Domain.Services;
 using HighSchool.Infrastructure.Context;
 using HighSchool.Infrastructure.Repositories;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HighSchool.API.Config
 {
     public static class DependencyInjectionHelper
     {
-        public static void Register(IServiceCollection services, IConfiguration Configuration)
+        public static void Register(IServiceCollection services)
         {
-            services.AddScoped<DatabaseContext, DatabaseContext>();
-            
+            services.AddScoped<DbContext, DatabaseContext>();
 
             #region Infrastructure
             services.AddScoped<IMarkRepository, MarkRepository>();

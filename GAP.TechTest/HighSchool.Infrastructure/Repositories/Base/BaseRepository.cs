@@ -14,7 +14,7 @@ namespace HighSchool.Infrastructure.Repositories.Base
             Table = DataBaseConnection.Set<T>();
         }
 
-        public IQueryable<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
             return Table;
         }

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using HighSchool.Domain.DTO;
+using HighSchool.Domain.DTO.Filters;
+using HighSchool.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace HighSchool.API.Controllers
 {
@@ -11,36 +10,20 @@ namespace HighSchool.API.Controllers
     [ApiController]
     public class MarkController : ControllerBase
     {
+        private readonly IMarkService _markService;
+        public MarkController(IMarkService markService)
+        {
+            _markService = markService;
+        }
+
         // GET: api/Mark
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/Mark/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Mark
         [HttpPost]
-        public void Post([FromBody] string value)
+        [ActionName("FilterData")]
+        public ActionResult<List<MarkDTO>> FilterData(FilterDTO filterDTO)
         {
+            return Ok(_markService.GetMarkResultsFiltered(filterDTO));
         }
 
-        // PUT: api/Mark/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       
     }
 }

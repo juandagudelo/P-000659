@@ -23,6 +23,21 @@ namespace HighSchool.Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Mark>(entity =>
+            {
+                entity.HasOne(d => d.Student)
+                    .WithMany(p => p.Marks)
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Mark_Student");
+
+                entity.HasOne(d => d.Subject)
+                    .WithMany(p => p.Marks)
+                    .HasForeignKey(d => d.SubjectId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Mark_Subject");
+
+            });
             base.OnModelCreating(modelBuilder);
         }
     }

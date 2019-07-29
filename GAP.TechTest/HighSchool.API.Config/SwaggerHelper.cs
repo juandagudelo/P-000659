@@ -6,7 +6,7 @@ namespace HighSchool.API.Config
 {
     public static class SwaggerHelper
     {
-        public static void SetService(IServiceCollection services, IConfiguration configuration)
+        public static void SetService(IServiceCollection services)
         {
             services.AddSwaggerGen(options =>
             {

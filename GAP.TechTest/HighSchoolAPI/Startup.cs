@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using HighSchool.API.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace HighSchoolAPI
 {
@@ -28,7 +22,6 @@ namespace HighSchoolAPI
         {
             services.AddCors(options =>
             {
-                // this defines a CORS policy called "default"
                 options.AddPolicy("default", policy =>
                 {
                     policy.AllowAnyOrigin()
@@ -37,11 +30,11 @@ namespace HighSchoolAPI
                 });
             });
 
+            services.AddAutoMapper();
+            DatabaseHelper.SetConnection(services, Configuration);
+            DependencyInjectionHelper.Register(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            DependencyInjectionHelper.Register(services, Configuration);
-
-            SwaggerHelper.SetService(services, Configuration);
+            SwaggerHelper.SetService(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +53,7 @@ namespace HighSchoolAPI
             app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseMvcWithDefaultRoute();
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
