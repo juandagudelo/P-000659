@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergeStringsApp", "MergeStringApp\MergeStringsApp.csproj", "{10ECAA5B-1141-4ADC-876F-EFC998CB57B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeStringsApp", "MergeStringApp\MergeStringsApp.csproj", "{10ECAA5B-1141-4ADC-876F-EFC998CB57B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchool.API", "HighSchoolAPI\HighSchool.API.csproj", "{0BB76757-FBDC-4C1D-B88D-C6D7DD76B87D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HighSchool", "HighSchool", "{752C2E6F-A477-4EE5-A3BC-56F6129C0638}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchool.Infrastructure", "HighSchool.Infrastructure\HighSchool.Infrastructure.csproj", "{4F3A961E-CB17-409D-80B1-CA68DE984C49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchool.Domain", "HighSchool.Domain\HighSchool.Domain.csproj", "{EAE7FF04-D3DE-4CD8-B835-6E1A39A1A79E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchool.API.Config", "HighSchool.API.Config\HighSchool.API.Config.csproj", "{44D76CCE-A6AB-46F9-BC06-15A448D3C2DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,31 @@ Global
 		{10ECAA5B-1141-4ADC-876F-EFC998CB57B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10ECAA5B-1141-4ADC-876F-EFC998CB57B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10ECAA5B-1141-4ADC-876F-EFC998CB57B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB76757-FBDC-4C1D-B88D-C6D7DD76B87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB76757-FBDC-4C1D-B88D-C6D7DD76B87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB76757-FBDC-4C1D-B88D-C6D7DD76B87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB76757-FBDC-4C1D-B88D-C6D7DD76B87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3A961E-CB17-409D-80B1-CA68DE984C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3A961E-CB17-409D-80B1-CA68DE984C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3A961E-CB17-409D-80B1-CA68DE984C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3A961E-CB17-409D-80B1-CA68DE984C49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE7FF04-D3DE-4CD8-B835-6E1A39A1A79E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE7FF04-D3DE-4CD8-B835-6E1A39A1A79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE7FF04-D3DE-4CD8-B835-6E1A39A1A79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE7FF04-D3DE-4CD8-B835-6E1A39A1A79E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D76CCE-A6AB-46F9-BC06-15A448D3C2DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D76CCE-A6AB-46F9-BC06-15A448D3C2DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D76CCE-A6AB-46F9-BC06-15A448D3C2DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D76CCE-A6AB-46F9-BC06-15A448D3C2DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0BB76757-FBDC-4C1D-B88D-C6D7DD76B87D} = {752C2E6F-A477-4EE5-A3BC-56F6129C0638}
+		{4F3A961E-CB17-409D-80B1-CA68DE984C49} = {752C2E6F-A477-4EE5-A3BC-56F6129C0638}
+		{EAE7FF04-D3DE-4CD8-B835-6E1A39A1A79E} = {752C2E6F-A477-4EE5-A3BC-56F6129C0638}
+		{44D76CCE-A6AB-46F9-BC06-15A448D3C2DF} = {752C2E6F-A477-4EE5-A3BC-56F6129C0638}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEAB20D0-CD58-40F2-8E2D-7F25D0A1444D}
