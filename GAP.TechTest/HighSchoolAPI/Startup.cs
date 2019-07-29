@@ -40,6 +40,8 @@ namespace HighSchoolAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             DependencyInjectionHelper.Register(services, Configuration);
+
+            SwaggerHelper.SetService(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,8 +56,16 @@ namespace HighSchoolAPI
                 app.UseHsts();
             }
 
+            app.UseCors("default");
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "High School API V1");
+            });
         }
     }
 }
