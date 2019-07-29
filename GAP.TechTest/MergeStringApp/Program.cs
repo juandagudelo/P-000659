@@ -17,18 +17,19 @@ namespace MergeStringsApp
         static void Main(string[] args)
         {
             CloseApp = false;
-            Merger merger = new Merger();
             Console.WriteLine(TITLE_APP);
 
             while (!CloseApp)
             {
+                StringService stringService = new StringService();
+
                 Console.WriteLine(STRING_ONE_MESSAGE);
-                merger.CharsStringOneList = merger.SetCharsStringList();
+                stringService.SaveStringAsCharList(Console.ReadLine());
 
                 Console.WriteLine(STRING_TWO_MESSAGE);
-                merger.CharsStringTwoList = merger.SetCharsStringList();
+                stringService.SaveStringAsCharList(Console.ReadLine());
 
-                merger.MergedStrings();
+                stringService.MergeStrings();
                 Console.WriteLine(EXIT_APP_QUESTION);
                 CloseApp = Console.ReadLine().ToLower() == YES_ANSWER;
 
