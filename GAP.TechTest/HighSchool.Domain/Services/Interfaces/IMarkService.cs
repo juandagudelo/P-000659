@@ -6,6 +6,6 @@ namespace HighSchool.Domain.Services.Interfaces
 {
     public interface IMarkService
     {
-        List<MarkDTO> GetMarkResultsFiltered(FilterDTO filterDTO);
+        List<MarkResultDTO> GetMarkResultsFiltered(FilterDTO filterDTO);
     }
 }

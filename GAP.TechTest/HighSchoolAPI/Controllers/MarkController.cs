@@ -18,7 +18,7 @@ namespace HighSchool.API.Controllers
 
         // POST: api/Mark/GetFiltered
         [HttpPost]
-        public ActionResult<List<MarkDTO>> GetFiltered(FilterDTO filterDTO)
+        public ActionResult<List<MarkResultDTO>> GetFiltered(FilterDTO filterDTO)
         {
             return Ok(_markService.GetMarkResultsFiltered(filterDTO));
         }

@@ -20,7 +20,7 @@ namespace HighSchool.Domain.Services
             _mapper = mapper;
         }
 
-        public List<MarkDTO> GetMarkResultsFiltered(FilterDTO filterDTO)
+        public List<MarkResultDTO> GetMarkResultsFiltered(FilterDTO filterDTO)
         {
             IQueryable<Mark> data = _markRepository.GetAll();
 
@@ -41,7 +41,12 @@ namespace HighSchool.Domain.Services
 
             }
 
-            return _mapper.Map<List<MarkDTO>>(data);
+            return _mapper.Map<List<MarkDTO>>(data).GroupBy(p=>p.StudentId)
+                .Select(marks => new MarkResultDTO()
+                {
+                    StudentName = marks.FirstOrDefault(p=>p.StudentId == marks.Key).StudentName,
+                    Marks = marks.ToList()
+                }).ToList();
         }
 
         

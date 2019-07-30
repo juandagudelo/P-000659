@@ -1,0 +1,51 @@
+<div class="container custom-container-2">
+    <div class="col-md-12">
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label for="score" class="mr-sm-2">Score bigger than:</label>
+                <input name="score" [(ngModel)]="filters.score" class="form-control form-control-sm mr-sm-2"
+                    type="number">
+            </div>
+            <div class="col-sm-3">
+                <label for="studentName" class="mr-sm-2">Student:</label>
+                <input name="studentName" [(ngModel)]="filters.studentName"
+                    class="form-control form-control-sm mr-sm-2">
+            </div>
+            <div class="col-sm-3">
+                <label for="subjectName" class="mr-sm-2">Subject:</label>
+                <input name="subjectName" [(ngModel)]="filters.subjectName"
+                    class="form-control form-control-sm mr-sm-2">
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-gray" (click)="getData()">Filter</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="loader" *ngIf="loading"></div>
+    <div class="no-data text-center" *ngIf="markResultList.length == 0">
+        <p>There is no data to show!</p>
+    </div>
+
+    <div *ngIf="markResultList.length !== 0">
+        <h3 class="mb-3 text-center">List</h3>
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Student</th>
+                        <th scope="col" *ngFor="let subject of subjectList">{{subject.name}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let markResult of markResultList">
+                        <td>{{markResult.studentName}}</td>
+                        <td *ngFor="let markResultScore of markResult.marks">{{markResultScore.score}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
