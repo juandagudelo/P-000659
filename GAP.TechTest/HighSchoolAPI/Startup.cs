@@ -58,7 +58,11 @@ namespace HighSchoolAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
+                #if DEBUG
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "High School API V1");
+                #else
+                c.SwaggerEndpoint("/webapi/swagger/v1/swagger.json", "High School API V1");
+                #endif
             });
         }
     }
