@@ -2,7 +2,7 @@
 using HighSchool.Infrastructure.Repositories.Base;
 using System.Linq;
 
-namespace HighSchool.Infrastructure.Repositories
+namespace HighSchool.Infrastructure.Repositories.Interfaces
 {
     public interface IMarkRepository : IRepository<Mark>
     {

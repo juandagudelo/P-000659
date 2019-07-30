@@ -10,6 +10,10 @@ namespace HighSchool.API.Config
         {
             CreateMap<Mark, MarkDTO>()
                .ForMember(dest => dest.SubjectName, source => source.MapFrom(prop => prop.Subject.Name))
+               .ForMember(dest => dest.StudentName, source => source.MapFrom(prop => prop.Student.FullName))
+               .ReverseMap();
+
+            CreateMap<Subject, SubjectDTO>()
                .ReverseMap();
         }
 

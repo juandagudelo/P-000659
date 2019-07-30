@@ -2,7 +2,7 @@
 using HighSchool.Domain.DTO.Filters;
 using System.Collections.Generic;
 
-namespace HighSchool.Domain.Services
+namespace HighSchool.Domain.Services.Interfaces
 {
     public interface IMarkService
     {

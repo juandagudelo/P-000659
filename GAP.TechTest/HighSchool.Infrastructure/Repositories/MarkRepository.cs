@@ -1,8 +1,8 @@
 ﻿using HighSchool.Infrastructure.Entities.Students;
 using HighSchool.Infrastructure.Repositories.Base;
+using HighSchool.Infrastructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace HighSchool.Infrastructure.Repositories
 {

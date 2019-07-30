@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using HighSchool.Domain.DTO;
 using HighSchool.Domain.DTO.Filters;
+using HighSchool.Domain.Services.Interfaces;
 using HighSchool.Infrastructure.Entities.Students;
-using HighSchool.Infrastructure.Repositories;
-using System;
+using HighSchool.Infrastructure.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace HighSchool.Domain.Services
 {

@@ -1,12 +1,12 @@
 ﻿using HighSchool.Domain.DTO;
 using HighSchool.Domain.DTO.Filters;
-using HighSchool.Domain.Services;
+using HighSchool.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace HighSchool.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class MarkController : ControllerBase
     {
@@ -16,10 +16,9 @@ namespace HighSchool.API.Controllers
             _markService = markService;
         }
 
-        // GET: api/Mark
+        // POST: api/Mark/GetFiltered
         [HttpPost]
-        [ActionName("FilterData")]
-        public ActionResult<List<MarkDTO>> FilterData(FilterDTO filterDTO)
+        public ActionResult<List<MarkDTO>> GetFiltered(FilterDTO filterDTO)
         {
             return Ok(_markService.GetMarkResultsFiltered(filterDTO));
         }
